@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800;900&display=swap');
 
 :root{
     --main-color: rgb(12, 72, 250);
@@ -77,16 +77,69 @@ body{
     height: 100%;
 }
 
-.main_img img {
+.main_img .me {
     height: 90vh;
     width: auto;
     min-width: auto;
     margin:auto;
     margin-top:10vh;
+    pointer-events: none;
+    z-index: 2;
+    position: relative;
+    right: -100px;
     
 }
 
+.commit_nb{
+    fill: green;
+    font-weight: 900;
+    font-size: 20px;
+    cursor: default;
+}
 
+.shadow{
+    filter: drop-shadow(4px 4px 4px rgba(0,0,0,.40));
+    transition: all 0.5s ease-out 100ms
+  
+}
+
+.badge:hover .shadow.main{
+    filter: drop-shadow(4px 4px 4px rgba(0,0,0,.80));
+
+}
+
+.badge{
+    position: relative;
+    transition: all 0.5s ease-out 100ms;
+    z-index: 4;
+}
+
+.badge:hover{
+    transform: scale(1.1);
+}
+
+.badge:nth-of-type(2){
+    top: -60vh;
+    left: -5vw;
+
+}
+
+.badge:nth-of-type(3){
+    top: -80vh;
+    z-index: 1;
+
+}
+
+/*svg:after {
+    content: 'qsdqsd';
+    position: relative;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    background-color: red;
+    width: 100%;
+
+}*/
 
 @media (max-width: 1000px){
     .main_img img {
@@ -96,6 +149,7 @@ body{
 
     .main_img{
         width: 0px;
+        display: none;
     }
 
     .left{

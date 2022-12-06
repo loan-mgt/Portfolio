@@ -1,5 +1,5 @@
 console.log("loaded")
-const commitCounter = document.querySelector("#commit");
+const commitCounter = document.querySelector(".commit_nb");
 let commit = 0
 
 
@@ -48,7 +48,7 @@ async function updateCommitEl(el) {
 			}
 			commit +=tmp_commit
 			console.log(commit, tmp_commit)
-			el.innerHTML = commit });
+			el.innerHTML = "+" +commit });
 
 	}
 
