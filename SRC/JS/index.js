@@ -1,6 +1,6 @@
 console.log("loaded")
 const commitCounter = document.querySelector("#commit");
-let commit = []
+let commit = 0
 
 
 async function  getAllRepo(name) {
@@ -43,8 +43,12 @@ async function updateCommitEl(el) {
 		
 		getCommit(name,repos[i])
 		.then(function(tmp_commit) {
-			commit.push( tmp_commit)
-			el.innerHTML = commit.length});
+			if (tmp_commit ===undefined ){
+				tmp_commit =0;
+			}
+			commit +=tmp_commit
+			console.log(commit, tmp_commit)
+			el.innerHTML = commit });
 
 	}
 
