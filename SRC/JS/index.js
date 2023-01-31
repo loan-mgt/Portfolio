@@ -16,10 +16,28 @@ async function  getAllRepo(name) {
 	
 }
 
-async function getCommit(name, repo) {
-	let res = await fetch("https://api.github.com/repos/"+name+"/"+repo+"/commits")
-	res =await res.json()
-	return res.length
+async function getCommit(user, owner, repo) {
+  let page = 0
+  let count;
+  let status =200;
+  res_len = -1;
+  while (res_len != 0 && status===200 ){
+  	console.log("status", status)
+  	try{
+  	let res = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits?author=${user}&per_page=100&page=${page}`);
+  	res = await res.json();
+  	count += res.length;
+  	res_len = res.length;
+
+  	status = await res.status
+  	} catch{
+  		res_len = 0
+  	}finally{
+  		page++;
+  	}
+  }
+  
+  return count;
 }
 
 async function updateCommit() {
@@ -28,7 +46,7 @@ async function updateCommit() {
 	let commit = []
 	for (var i = 0; i < repos.length; i++) {
 		
-		const tmp_commit = await getCommit(name,repos[i]);
+		const tmp_commit = await getCommit(name,name,repos[i]);
 		commit.push( tmp_commit);
 	}
 
@@ -41,7 +59,7 @@ async function updateCommitEl(el) {
 	
 	for (var i = 0; i < repos.length; i++) {
 		
-		getCommit(name,repos[i])
+		getCommit(name,name,repos[i])
 		.then(function(tmp_commit) {
 			if (tmp_commit ===undefined ){
 				tmp_commit =0;
@@ -51,6 +69,10 @@ async function updateCommitEl(el) {
 			el.innerHTML = "+" +commit });
 
 	}
+	commit +=  await getCommit(name,'icepick4','TchouTchou'); 
+	el.innerHTML = "+" +commit ;
+
+
 
 	console.log(commit)
 }
