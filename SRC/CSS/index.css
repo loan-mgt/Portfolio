@@ -12,13 +12,13 @@ body{
 }
 
 .top{
+    position: relative;
     width: 100vw;
     height: 100vh;
-    display: flex;
 }
 
 .left{
-    width: 40vw;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -44,7 +44,30 @@ body{
 .left .main_text{
     align-self: center;
     margin-left: 20px;
+    z-index: 2;
 
+}
+
+.main_text h1{
+    font-size: clamp(40px, 8vw, 80px);;
+    /*margin-top: .5rem;*/
+    font-weight: 600;
+    margin: 0;
+}
+
+.main_text p#info {
+    font-size: clamp(1.4rem, 5vw, 1.6rem);
+    /*margin: 10px 0px 0px;
+    font-size: clamp(40px, 8vw, 80px);
+    font-weight: 600;
+    color: var(--main-color);
+    line-height: 0.9;*/
+}
+
+.main_text p#welcome {
+    font-family: Space Mono, SF Mono, Fira Code, Fira Mono, Roboto Mono, monospace;
+    margin: 0;
+    font-size: clamp(1.3rem, 5vw, 1.4rem);
 }
 
 .left .left_bottom{
@@ -68,27 +91,17 @@ body{
 .left .sphere{
     position: relative;
     z-index: -1;
-    top: -160px;
-    right: -240px;
+    top: -205px;
+    right: -423px;
 }
 
 .main_img{
-    width: 60vw;
-    height: 100%;
+    position: absolute;
+    z-index: 0;
+    width: 100vw;
+    height:100vh;
 }
 
-.main_img .me {
-    height: 90vh;
-    width: auto;
-    min-width: auto;
-    margin:auto;
-    margin-top:10vh;
-    pointer-events: none;
-    z-index: 2;
-    position: relative;
-    right: -100px;
-    
-}
 
 .commit_nb{
     fill: green;
@@ -109,37 +122,31 @@ body{
 }
 
 .badge{
-    position: relative;
+    position: absolute;
+    
     transition: all 0.5s ease-out 100ms;
-    z-index: 4;
+    z-index: 6;
 }
 
 .badge:hover{
     transform: scale(1.05);
 }
 
-.badge:nth-of-type(2){
-    top: -60vh;
-    left: -5vw;
+
+.badge:nth-child(1){
+    /*top: clamp(1.4rem, 5vw, 1.6rem);*/
+    top: 70vh;
+    left: 10vw;
+}
+
+.badge:nth-child(2){
+    /*top: clamp(1.4rem, 5vw, 1.6rem);*/
+    top: 50vh;
+    left: 67vw;
 
 }
 
-.badge:nth-of-type(3){
-    top: -80vh;
-    z-index: 1;
 
-}
-
-/*svg:after {
-    content: 'qsdqsd';
-    position: relative;
-    top: 0px;
-    left: 0px;
-    height: 100%;
-    background-color: red;
-    width: 100%;
-
-}*/
 
 @media (max-width: 1000px){
     .main_img img {
