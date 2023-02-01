@@ -1,6 +1,32 @@
 console.log("loaded")
 const commitCounter = document.querySelector(".commit_nb");
+const tableDiv = document.querySelector(".back-table");
+const loadingSplash = document.querySelector(".loading");
+loadingSplash.style.zIndex = -2;
 let commit = 0
+addEventListener("scroll", (event) => {
+
+	let scroll =
+            (window.scrollY /
+                (document.body.scrollHeight - window.innerHeight)) *
+            100;
+	scroll = Math.round(scroll);
+
+
+
+	if (scroll>80){
+		tableDiv.classList.add("visible")
+
+	}else{
+		tableDiv.classList.remove("visible")
+	}
+
+});
+
+
+
+
+
 
 
 async function  getAllRepo(name) {
@@ -18,7 +44,7 @@ async function  getAllRepo(name) {
 
 async function getCommit(user, owner, repo) {
   let page = 0
-  let count;
+  let count = 0;
   let status =200;
   res_len = -1;
   while (res_len != 0 && status===200 ){
@@ -37,7 +63,7 @@ async function getCommit(user, owner, repo) {
   	}
   }
   
-  return count;
+  return count === undefined ? 0 : count  ;
 }
 
 async function updateCommit() {
@@ -56,25 +82,19 @@ async function updateCommit() {
 async function updateCommitEl(el) {
 	const  name = "qypol342";
 	const repos = await getAllRepo(name)
+	let commit = 0
 	
 	for (var i = 0; i < repos.length; i++) {
-		
-		getCommit(name,name,repos[i])
-		.then(function(tmp_commit) {
-			if (tmp_commit ===undefined ){
-				tmp_commit =0;
-			}
-			commit +=tmp_commit
-			console.log(commit, tmp_commit)
-			el.innerHTML = "+" +commit });
-
+		commit += await getCommit(name,name,repos[i]) 
 	}
+	console.log("commit brefor tchou", commit)
 	commit +=  await getCommit(name,'icepick4','TchouTchou'); 
+	console.log("commit after tchou",commit)
 	el.innerHTML = "+" +commit ;
 
 
 
-	console.log(commit)
+	console.log(" final number",commit)
 }
 
 
