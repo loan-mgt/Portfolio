@@ -6,9 +6,17 @@
 }
 
 body{
+    width: 100vw;
+    overflow-x: hidden;
     margin: 0px;
     background-color: white;
     font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+
+}
+a{
+    text-transform: none;
+    text-decoration: none;
 }
 
 .top{
@@ -45,6 +53,7 @@ body{
     align-self: center;
     margin-left: 20px;
     z-index: 2;
+    position: relative;
 
 }
 
@@ -89,10 +98,10 @@ body{
 }
 
 .left .sphere{
-    position: relative;
+    position: absolute;
     z-index: -1;
-    top: -205px;
-    right: -423px;
+    top: 28px;
+    right: -36px;
 }
 
 .main_img{
@@ -219,20 +228,40 @@ body{
 }
 
 .center-table table{
+    aspect-ratio: 16/9;
+    font-size: clamp(0.2rem, 2vw, 1.2rem);
+
     margin: auto;
+
     margin-top: auto;
     margin-bottom: auto;
-    width: 70%;
-    height: 80%;
+    width: 85%;
+    max-width: 800px;
+    /*width: 70%;
+    height: 80%;*/
     border-collapse: collapse;
     border-style: hidden;
+
 }
 
 table th{
-    border: 2px solid white;
+    /*border: 2px solid white;*/
+    
+}
+
+table th p {
+    width: fit-content;
+
+    margin: 0;
+    margin-left: .5rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    text-align: left;
+        border-radius: 1rem;
+    background: linear-gradient(90deg, rgba(9,80,150,.5) 0%, rgba(0,100,200,.5) 100%);
 }
 table td{
-    border: 2px solid white;
+    /*border: 2px solid white;*/
     text-align: center;
 }
 
