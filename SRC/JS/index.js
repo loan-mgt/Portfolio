@@ -2,6 +2,10 @@ console.log("loaded")
 const commitCounter = document.querySelector(".commit_nb");
 const tableDiv = document.querySelector(".back-table");
 const loadingSplash = document.querySelector(".loading");
+const skills = document.querySelectorAll(".sub-panel");
+const skillsBtn = document.querySelectorAll(".skill-title");
+
+
 loadingSplash.style.zIndex = -2;
 let commit = 0
 addEventListener("scroll", (event) => {
@@ -25,7 +29,27 @@ addEventListener("scroll", (event) => {
 
 
 
+let count = 0
+for (const btn of skillsBtn){
+	btn.id=count
+	btn.addEventListener("click", (event) =>{
+		showSkill(event.currentTarget.id)
+	})
+	count++
 
+}
+
+function showSkill(id){
+	let countSkill = 0;
+	for (const skill of skills){
+		if (countSkill == id){
+			skill.classList.add("actif");
+		}else{
+			skill.classList.remove("actif");
+		}
+		countSkill++;
+	}
+}
 
 
 
@@ -98,5 +122,5 @@ async function updateCommitEl(el) {
 }
 
 
-updateCommitEl(commitCounter)
-.then(function() {console.log("end")})
+// updateCommitEl(commitCounter)
+// .then(function() {console.log("end")})
