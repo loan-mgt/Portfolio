@@ -3,7 +3,7 @@ const commitCounter = document.querySelector(".commit_nb");
 const tableDiv = document.querySelector(".back-table");
 const loadingSplash = document.querySelector(".loading");
 const skills = document.querySelectorAll(".sub-panel");
-const skillsBtn = document.querySelectorAll(".skill-title");
+const skillBtns = document.querySelectorAll(".skill-title");
 
 
 loadingSplash.style.zIndex = -2;
@@ -30,13 +30,23 @@ addEventListener("scroll", (event) => {
 
 
 let count = 0
-for (const btn of skillsBtn){
+for (const btn of skillBtns){
 	btn.id=count
 	btn.addEventListener("click", (event) =>{
 		showSkill(event.currentTarget.id)
+		showActif(event.currentTarget)
 	})
 	count++
 
+}
+
+function showActif(target){
+
+	for(const skillbtns of skillBtns){
+		skillbtns.classList.remove("actif")
+	}
+
+	target.classList.add("actif")
 }
 
 function showSkill(id){
