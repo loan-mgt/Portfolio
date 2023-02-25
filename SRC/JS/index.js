@@ -4,7 +4,7 @@ const tableDiv = document.querySelector(".back-table");
 const loadingSplash = document.querySelector(".loading");
 const skills = document.querySelectorAll(".sub-panel");
 const skillBtns = document.querySelectorAll(".skill-title");
-
+let tableShadowPos = 0;
 
 loadingSplash.style.zIndex = -2;
 let commit = 0
@@ -35,6 +35,12 @@ for (const btn of skillBtns){
 	btn.addEventListener("click", (event) =>{
 		showSkill(event.currentTarget.id)
 		showActif(event.currentTarget)
+		const newAngle = parseInt(tableShadowPos+2)*90 ;
+		console.log(document.querySelector(':root').style.setProperty('--gradDirectionValue',newAngle+'deg'))
+		for(const pan of document.querySelectorAll('.back-pan')){
+			pan.classList.toggle('rotate')
+		}
+		tableShadowPos++
 	})
 	count++
 
