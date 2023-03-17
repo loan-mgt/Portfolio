@@ -18,7 +18,7 @@ addEventListener("scroll", (event) => {
 
 
 
-	if (scroll>80){
+	if (scroll>45 && scroll<60){
 		tableDiv.classList.add("visible")
 
 	}else{
