@@ -351,6 +351,7 @@ a{
 .grid  .side-panel  .sub-panel.actif{
     transition: all  2.8s .1s ease;
     opacity: 1;
+    z-index: 2;
     
 
 }
