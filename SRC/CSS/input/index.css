@@ -454,13 +454,13 @@ a{
 }
 
 
-.info h3{
+.info .project-title{
     font-size: 2rem;
     font-weight: bold;
     margin-left: .7rem;
     width: fit-content;
 }
 
-.info p{
+.info .project-info{
     margin-left: 1rem;
 }
