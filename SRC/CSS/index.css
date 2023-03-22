@@ -1963,6 +1963,10 @@ html{
   margin-left: 1rem;
 }
 
+.mt-2{
+  margin-top: 0.5rem;
+}
+
 .inline-block{
   display: inline-block;
 }
