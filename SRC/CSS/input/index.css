@@ -3,19 +3,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@property --gradDirection {
-    syntax: '<angle>';
-    initial-value: 90deg;
-    inherits: false;
-}
+
 
 :root{
     --main-color: rgb(12, 72, 250);
     --main-color50: rgba(12, 72, 250,.5);
     --main-color30: rgba(12, 72, 250,.3);
-    --gradDirectionValue: 90deg;
     font-family: 'Poppins', sans-serif;
-    --gradDirection: var(--gradDirectionValue);
     scroll-behavior: smooth;
 }
 
@@ -232,7 +226,6 @@ a{
     height: 100%;
     width: 100%;
     position: relative;
-    transition: all 1s ease;
 }
 
 
